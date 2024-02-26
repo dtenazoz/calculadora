@@ -31,7 +31,7 @@ public class Calculadora <T>{
     public PilaA convPostfija(PilaA infija) {
     PilaA postfija = new PilaA(MAXPOSTF);
 
-    infija = infija.voltea(); // Reverse the stack to arrange
+    infija = infija.voltea(); 
 
     while (!infija.isEmpty()) {
         if (infija.peek() instanceof Double) {
@@ -44,25 +44,25 @@ public class Calculadora <T>{
                     postfija.push(pilaControl.pop());
                 }
                 if (!pilaControl.isEmpty()) {
-                    pilaControl.pop(); // Remove the '(' if it's there
+                    pilaControl.pop(); 
                 }
             } else if (currentChar == '(') {
                 pilaControl.push(currentChar);
             } else if (currentChar == '-') {
             if (!infija.isEmpty() && ((char) infija.peek() == '(' || Character.isDigit((char) infija.peek()))) {
-            // Treat '-' as subtraction
+            
                 while (!pilaControl.isEmpty() && checkJerarquia((char) pilaControl.peek())) {
                  postfija.push(pilaControl.pop());
             }   
                 pilaControl.push(currentChar);
-            // Process the rest of the negative number including '-'
+            
                 StringBuilder decimalNumber = new StringBuilder("-");
                 while (!infija.isEmpty() && (Character.isDigit((char) infija.peek()) || (char) infija.peek() == '.')) {
                  decimalNumber.append(infija.pop());
             }
                 postfija.push(Double.parseDouble(decimalNumber.toString()));
             } else {
-        // Treat '-' as unary negation
+        
             pilaControl.push(currentChar);
              }
         }
@@ -109,7 +109,7 @@ public class Calculadora <T>{
         default -> 4;
     };
 
-    // Assuming pilaControl is a Stack<Character>, you might need to cast here
+
     jerarquiaTop = switch ((char) pilaControl.peek()) {
         case '(', ')' -> 0;
         case '+', '-' -> 1;
@@ -144,21 +144,21 @@ public class Calculadora <T>{
     double a, b;
 
     while (!pilaPostfija.isEmpty()) {
-        System.out.println("Pila: " + pilaPostfija.toString());  // Debugging line
+        System.out.println("Pila: " + pilaPostfija.toString());  
 
         if (pilaPostfija.peek() instanceof Double) {
-            // If the top of the stack is a double, push it to the control stack
+            
             pilaControl.push(pilaPostfija.pop());
         } else {
             char operador = (char) pilaPostfija.pop();
 
             if (esOperador(operador)) {
-                // Check if there are enough operands on the control stack
+                
                 if (pilaControl.isEmpty()) {
                     throw new ExcepcionColeccionVacia("Not enough operands for operator: " + operador);
                 }
 
-                // Perform the operation
+                
                 switch (operador) {
                     case '+':
                         a = (double) pilaControl.pop();
@@ -190,7 +190,7 @@ public class Calculadora <T>{
                         break;
                 }
 
-                // Push the result back to the control stack
+                
                 pilaControl.push(res);
             }
         }
