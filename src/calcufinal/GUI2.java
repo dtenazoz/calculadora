@@ -376,7 +376,11 @@ public class GUI2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>    
     
-    // Asignacion de valores a los botones de la calculadora
+    
+    /**
+     * Asignación de valores a los botones de la calculadora
+     * @param evt 
+     */
 
     private void botonParIzqActionPerformed(java.awt.event.ActionEvent evt) {                                            
         cajaTexto.append("(");
@@ -510,7 +514,12 @@ public class GUI2 extends javax.swing.JFrame {
         cajaTexto.append("+");
     }                                        
 
-    // Metodo que calcula el valor que arroja la calculadora
+    /**
+     * Metodo que calcula el valor que arroja la calculadora.
+     * @param calc Entra un objeto de calculadora
+     * @param postfija Pila postfija
+     * @return Resultado doble del cálculo
+     */
     private double prueba (Calculadora calc, PilaA postfija){
         double res;
         res = calc.calculaPostFija(postfija);
@@ -537,7 +546,10 @@ public class GUI2 extends javax.swing.JFrame {
         }
     }                                          
 
-    // Metodo que valida la sintaxis del input del usuario
+    /**
+     * Metodo que valida la sintaxis del input del usuario
+     * @return Verdadero o falso sobre el posible error del input
+     */
     public boolean validar() {
     ArrayList<Character> operacion = new ArrayList<Character>();
 
@@ -572,15 +584,23 @@ public class GUI2 extends javax.swing.JFrame {
     return error;
 }
 
-// Metodo auxiliar para verificar si un carácter es un operador
-private boolean esOperador(char c) {
-    return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
-}
+    /**
+     * Metodo auxiliar para verificar si un carácter es un operador
+     * @param c Caracter que se revisa
+     * @return Verdadero o falso dependiendo del resultado
+     */
+    private boolean esOperador(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
+    }
 
-// Metodo auxiliar para verificar si después de '-' hay un operador
-private boolean esOperadorDespues(char c) {
-    return esOperador(c) || c == '+' || c == '/' || c == '*' || c == '^';
-}
+    /**
+     * Metodo auxiliar para verificar si después de '-' hay un operador
+     * @param c Caracter que se revisa
+     * @return Verdadero o falso dependiendo del resultado
+     */
+    private boolean esOperadorDespues(char c) {
+        return esOperador(c) || c == '+' || c == '/' || c == '*' || c == '^';
+    }
     
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         cajaTexto.append("1");

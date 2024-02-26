@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/danieltena/NetBeansProjects/CalcuFinal/src/calcufinal/Pruebas.java</file>
+            <file>file:/Users/danieltena/NetBeansProjects/CalcuFinal/test/calcufinal/CalculadoraTest.java</file>
             <file>file:/Users/danieltena/NetBeansProjects/CalcuFinal/src/calcufinal/Calculadora.java</file>
+            <file>file:/Users/danieltena/NetBeansProjects/CalcuFinal/src/calcufinal/PilaADT.java</file>
+            <file>file:/Users/danieltena/NetBeansProjects/CalcuFinal/src/calcufinal/ExcepcionColeccionVacia.java</file>
             <file>file:/Users/danieltena/NetBeansProjects/CalcuFinal/src/calcufinal/GUI2.java</file>
             <file>file:/Users/danieltena/NetBeansProjects/CalcuFinal/src/calcufinal/PilaA.java</file>
         </group>
